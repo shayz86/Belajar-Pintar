@@ -71,27 +71,27 @@
     <!-- 1. HALAMAN BERANDA -->
     <section id="home" class="screen active items-center justify-center p-6 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
         <div class="text-center mb-8 pop-in">
-            <div class="text-8xl mb-4 floating">🚀</div>
+            <div class="text-8xl mb-4 floating"></div>
             <h1 class="text-5xl font-bold text-blue-600 mb-2 drop-shadow-sm">CALISTUNG</h1>
             <h2 class="text-2xl font-semibold text-blue-400 bg-white inline-block px-4 py-1 rounded-full shadow-sm">Master Membaca</h2>
         </div>
         
         <div class="grid grid-cols-1 gap-4 w-full max-w-sm">
             <button onclick="nav('alphabet')" class="btn-3d w-full bg-yellow-400 hover:bg-yellow-300 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-yellow-500">
-                <span class="text-3xl">🅰️</span> <span>KENAL HURUF</span> <span>➔</span>
+                <span class="text-3xl"></span> <span>KENAL HURUF</span> <span></span>
             </button>
             
             <button onclick="nav('syllable-select')" class="btn-3d w-full bg-green-500 hover:bg-green-400 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-green-600">
-                <span class="text-3xl">🧩</span> <span>SUKU KATA</span> <span>➔</span>
+                <span class="text-3xl"></span> <span>SUKU KATA</span> <span></span>
             </button>
             
             <button onclick="nav('reading-intro')" class="btn-3d w-full bg-pink-500 hover:bg-pink-400 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-pink-600">
-                <span class="text-3xl">📖</span> <span>BACA KATA</span> <span>➔</span>
+                <span class="text-3xl"></span> <span>BACA KATA</span> <span></span>
             </button>
             
             <button onclick="startGameMode()" class="btn-3d w-full bg-purple-600 hover:bg-purple-500 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-purple-800 mt-4 relative overflow-hidden group">
                 <div class="absolute inset-0 bg-white opacity-10 group-hover:opacity-20 transition"></div>
-                <span class="text-3xl">🎮</span> <span>MINI GAME</span> <span>➔</span>
+                <span class="text-3xl"></span> <span>MINI GAME</span> <span></span>
             </button>
         </div>
     </section>
@@ -99,7 +99,7 @@
     <!-- 2. HALAMAN KENAL HURUF -->
     <section id="alphabet" class="screen p-4 bg-yellow-50">
         <div class="sticky top-0 z-20 flex items-center justify-between bg-yellow-50/95 backdrop-blur py-3 mb-4 border-b border-yellow-100">
-            <button onclick="nav('home')" class="bg-white p-3 rounded-xl shadow text-xl active:scale-95">🏠</button>
+            <button onclick="nav('home')" class="bg-white p-3 rounded-xl shadow text-xl active:scale-95"></button>
             <h2 class="text-2xl font-bold text-yellow-600">Alfabet A-Z</h2>
             <div class="w-10"></div>
         </div>
@@ -111,7 +111,7 @@
     <!-- 3. HALAMAN PILIH SUKU KATA -->
     <section id="syllable-select" class="screen p-4 bg-green-50">
         <div class="sticky top-0 z-20 flex items-center justify-between bg-green-50/95 backdrop-blur py-3 mb-4 border-b border-green-100">
-            <button onclick="nav('home')" class="bg-white p-3 rounded-xl shadow text-xl active:scale-95">🏠</button>
+            <button onclick="nav('home')" class="bg-white p-3 rounded-xl shadow text-xl active:scale-95"></button>
             <h2 class="text-2xl font-bold text-green-600">Pilih Huruf</h2>
             <div class="w-10"></div>
         </div>
@@ -123,13 +123,13 @@
     <!-- 4. HALAMAN MAIN SUKU KATA -->
     <section id="syllable-play" class="screen items-center justify-center p-6 bg-green-100">
         <div class="w-full max-w-md bg-white rounded-[40px] p-8 text-center shadow-2xl relative pop-in border-4 border-green-200">
-            <button onclick="nav('syllable-select')" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 text-2xl">✖</button>
+            <button onclick="nav('syllable-select')" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 text-2xl"></button>
             <div class="mb-2 text-sm font-bold text-green-400 tracking-widest mt-4">LATIHAN SUKU KATA</div>
-            <div id="syl-icon" class="text-9xl mb-6 floating block mt-4">🍎</div>
+            <div id="syl-icon" class="text-9xl mb-6 floating block mt-4"></div>
             <div id="syl-text" class="flex justify-center gap-2 text-5xl font-bold text-gray-700 mb-8 uppercase flex-wrap"></div>
             <div class="space-y-4">
-                <button onclick="speakSyllable()" class="w-full bg-blue-100 text-blue-600 font-bold py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-blue-200 transition text-xl">🔊 Dengar</button>
-                <button onclick="nextSyllable()" class="btn-3d w-full bg-green-500 text-white font-bold py-4 rounded-2xl text-2xl shadow-green-700/50">Lanjut ➔</button>
+                <button onclick="speakSyllable()" class="w-full bg-blue-100 text-blue-600 font-bold py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-blue-200 transition text-xl"> Dengar</button>
+                <button onclick="nextSyllable()" class="btn-3d w-full bg-green-500 text-white font-bold py-4 rounded-2xl text-2xl shadow-green-700/50">Lanjut </button>
             </div>
             <div class="mt-6 flex justify-center gap-2" id="syl-dots"></div>
         </div>
@@ -138,7 +138,7 @@
     <!-- 5. HALAMAN BACA KATA (INTRO) -->
     <section id="reading-intro" class="screen items-center justify-center p-6 bg-pink-100">
         <div class="text-center max-w-md pop-in">
-            <div class="text-8xl mb-4">🧐</div>
+            <div class="text-8xl mb-4"></div>
             <h2 class="text-4xl font-bold text-pink-600 mb-4">Fokus Baca Tulisan</h2>
             <p class="text-lg text-gray-600 mb-8">Disini tidak ada gambar. Kamu harus membaca tulisannya sendiri ya!</p>
             <button onclick="startReadingMode()" class="btn-3d bg-pink-500 text-white px-10 py-4 rounded-full text-2xl font-bold shadow-pink-700/50">Mulai Baca</button>
@@ -149,7 +149,7 @@
     <!-- 6. HALAMAN BACA KATA (MAIN) -->
     <section id="reading-play" class="screen items-center justify-center p-6 bg-white relative">
         <button onclick="nav('reading-intro')" class="absolute top-6 left-6 p-3 bg-gray-100 rounded-2xl text-gray-500 hover:bg-gray-200 font-bold shadow-md z-10 flex items-center gap-2">
-            <span>✖</span> <span class="hidden sm:inline">Keluar</span>
+            <span></span> <span class="hidden sm:inline">Keluar</span>
         </button>
 
         <div class="w-full max-w-2xl text-center mt-10">
@@ -157,8 +157,8 @@
             <div id="read-word" class="text-7xl sm:text-9xl font-black text-gray-800 tracking-wider mb-16 uppercase transition-all duration-300 transform">BOLA</div>
             
             <div class="grid gap-4 max-w-sm mx-auto">
-                <button onclick="checkRead()" class="btn-3d bg-pink-500 text-white py-6 rounded-3xl font-bold text-2xl shadow-pink-700/50">AKU BISA BACA! ✔️</button>
-                <button onclick="speakReadWord()" class="text-pink-400 font-bold text-sm bg-pink-50 py-2 rounded-xl">🔊 Bantuan Suara</button>
+                <button onclick="checkRead()" class="btn-3d bg-pink-500 text-white py-6 rounded-3xl font-bold text-2xl shadow-pink-700/50">AKU BISA BACA! </button>
+                <button onclick="speakReadWord()" class="text-pink-400 font-bold text-sm bg-pink-50 py-2 rounded-xl"> Bantuan Suara</button>
             </div>
             <div class="mt-12 flex justify-center gap-2" id="read-dots"></div>
         </div>
@@ -168,7 +168,7 @@
     <section id="game-play" class="screen items-center justify-center p-4 bg-purple-600">
         <div class="w-full max-w-md bg-white rounded-[30px] p-6 shadow-2xl relative pop-in">
             <div class="flex justify-between items-center mb-6 bg-purple-50 p-3 rounded-2xl">
-                <button onclick="nav('home')" class="text-purple-400 font-bold text-sm">✖ Keluar</button>
+                <button onclick="nav('home')" class="text-purple-400 font-bold text-sm"> Keluar</button>
                 <div class="text-right">
                     <div class="font-bold text-purple-800">Skor: <span id="game-score">0</span></div>
                     <div class="text-xs text-purple-400 font-bold mt-1">Soal <span id="game-progress">1</span>/10</div>
@@ -177,7 +177,7 @@
 
             <div class="text-center mb-8">
                 <h3 class="text-gray-500 font-bold text-sm mb-2">Tebak Kata untuk gambar ini:</h3>
-                <div id="game-question-icon" class="text-9xl floating inline-block">🦁</div>
+                <div id="game-question-icon" class="text-9xl floating inline-block"></div>
             </div>
 
             <div id="game-options" class="grid gap-3"></div>
@@ -188,7 +188,7 @@
     <!-- OVERLAY CONGRATS (Menang) -->
     <div id="overlay-congrats" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden backdrop-blur-sm">
         <div class="bg-white p-8 rounded-[40px] text-center max-w-sm mx-4 pop-in border-8 border-yellow-400">
-            <div class="text-8xl mb-4 animate-bounce">🏆</div>
+            <div class="text-8xl mb-4 animate-bounce"></div>
             <h2 class="text-4xl font-bold text-yellow-500 mb-2">HEBAT!</h2>
             <p id="congrats-msg" class="text-gray-500 font-bold text-lg mb-8">Kamu menyelesaikan sesi ini!</p>
             <button onclick="closeCongrats()" class="btn-3d bg-blue-500 text-white py-4 px-10 rounded-full font-bold text-xl w-full">Main Lagi</button>
@@ -199,144 +199,144 @@
         /* ================= DATA BANK ================= */
         const alphabetData = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('').map(char => {
             const examples = {
-                'A':['Ayam','🐔'], 'B':['Bola','⚽'], 'C':['Ceri','🍒'], 'D':['Dadu','🎲'],
-                'E':['Es','🧊'], 'F':['Foto','📷'], 'G':['Gajah','🐘'], 'H':['Hiu','🦈'],
-                'I':['Ikan','🐟'], 'J':['Jus','🥤'], 'K':['Kuda','🐎'], 'L':['Lemon','🍋'],
-                'M':['Mobil','🚗'], 'N':['Nanas','🍍'], 'O':['Obor','🔥'], 'P':['Panda','🐼'],
-                'Q':['Quran','📖'], 'R':['Roti','🍞'], 'S':['Sapi','🐄'], 'T':['Topi','🧢'],
-                'U':['Ular','🐍'], 'V':['Vas','🏺'], 'W':['Wortel','🥕'], 'X':['Xilofon','🎹'],
-                'Y':['Yoyo','🪀'], 'Z':['Zebra','🦓']
+                'A':['Ayam',''], 'B':['Bola',''], 'C':['Ceri',''], 'D':['Dadu',''],
+                'E':['Es',''], 'F':['Foto',''], 'G':['Gajah',''], 'H':['Hiu',''],
+                'I':['Ikan',''], 'J':['Jus',''], 'K':['Kuda',''], 'L':['Lemon',''],
+                'M':['Mobil',''], 'N':['Nanas',''], 'O':['Obor',''], 'P':['Panda',''],
+                'Q':['Quran',''], 'R':['Roti',''], 'S':['Sapi',''], 'T':['Topi',''],
+                'U':['Ular',''], 'V':['Vas',''], 'W':['Wortel',''], 'X':['Xilofon',''],
+                'Y':['Yoyo',''], 'Z':['Zebra','']
             };
             return { char, word: examples[char][0], icon: examples[char][1] };
         });
 
         // BANK 50 SOAL MINI GAME
         const miniGameBank = [
-            {w:"AYAM", i:"🐔"}, {w:"BOLA", i:"⚽"}, {w:"KUCING", i:"🐱"}, {w:"IKAN", i:"🐟"}, {w:"GAJAH", i:"🐘"},
-            {w:"RUMAH", i:"🏠"}, {w:"MOBIL", i:"🚗"}, {w:"BUKU", i:"📚"}, {w:"PENSIL", i:"✏️"}, {w:"POHON", i:"🌳"},
-            {w:"BUNGA", i:"🌻"}, {w:"MATAHARI", i:"☀️"}, {w:"BULAN", i:"🌙"}, {w:"BINTANG", i:"⭐"}, {w:"PELANGI", i:"🌈"},
-            {w:"API", i:"🔥"}, {w:"AIR", i:"💧"}, {w:"ES", i:"🧊"}, {w:"ROTI", i:"🍞"}, {w:"SUSU", i:"🥛"},
-            {w:"KEJU", i:"🧀"}, {w:"TELUR", i:"🥚"}, {w:"PIZZA", i:"🍕"}, {w:"BURGER", i:"🍔"}, {w:"DONAT", i:"🍩"},
-            {w:"APEL", i:"🍎"}, {w:"PISANG", i:"🍌"}, {w:"ANGGUR", i:"🍇"}, {w:"JERUK", i:"🍊"}, {w:"NANAS", i:"🍍"},
-            {w:"TOPI", i:"🧢"}, {w:"BAJU", i:"👕"}, {w:"CELANA", i:"👖"}, {w:"SEPATU", i:"👞"}, {w:"KACAMATA", i:"👓"},
-            {w:"JAM", i:"⌚"}, {w:"TAS", i:"🎒"}, {w:"PAYUNG", i:"☂️"}, {w:"KUNCI", i:"🔑"}, {w:"GUNTING", i:"✂️"},
-            {w:"GITAR", i:"🎸"}, {w:"DRUM", i:"🥁"}, {w:"BOLA BASKET", i:"🏀"}, {w:"SEPEDA", i:"🚲"}, {w:"PESAWAT", i:"✈️"},
-            {w:"KERETA", i:"🚂"}, {w:"PERAHU", i:"⛵"}, {w:"ROKET", i:"🚀"}, {w:"ROBOT", i:"🤖"}, {w:"BONEKA", i:"🧸"}
+            {w:"AYAM", i:""}, {w:"BOLA", i:""}, {w:"KUCING", i:""}, {w:"IKAN", i:""}, {w:"GAJAH", i:""},
+            {w:"RUMAH", i:""}, {w:"MOBIL", i:""}, {w:"BUKU", i:""}, {w:"PENSIL", i:""}, {w:"POHON", i:""},
+            {w:"BUNGA", i:""}, {w:"MATAHARI", i:""}, {w:"BULAN", i:""}, {w:"BINTANG", i:""}, {w:"PELANGI", i:""},
+            {w:"API", i:""}, {w:"AIR", i:""}, {w:"ES", i:""}, {w:"ROTI", i:""}, {w:"SUSU", i:""},
+            {w:"KEJU", i:""}, {w:"TELUR", i:""}, {w:"PIZZA", i:""}, {w:"BURGER", i:""}, {w:"DONAT", i:""},
+            {w:"APEL", i:""}, {w:"PISANG", i:""}, {w:"ANGGUR", i:""}, {w:"JERUK", i:""}, {w:"NANAS", i:""},
+            {w:"TOPI", i:""}, {w:"BAJU", i:""}, {w:"CELANA", i:""}, {w:"SEPATU", i:""}, {w:"KACAMATA", i:""},
+            {w:"JAM", i:""}, {w:"TAS", i:""}, {w:"PAYUNG", i:""}, {w:"KUNCI", i:""}, {w:"GUNTING", i:""},
+            {w:"GITAR", i:""}, {w:"DRUM", i:""}, {w:"BOLA BASKET", i:""}, {w:"SEPEDA", i:""}, {w:"PESAWAT", i:""},
+            {w:"KERETA", i:""}, {w:"PERAHU", i:""}, {w:"ROKET", i:""}, {w:"ROBOT", i:""}, {w:"BONEKA", i:""}
         ];
 
         // BANK SUKU KATA DIPERBARUI (Fokus 4 Huruf, Ejaan Diperbaiki)
         const syllableBank = {
             'B': [
-                ['BA-JU','👕'], ['BO-LA','⚽'], ['BU-KU','📚'], ['BI-RU','🔵'], ['BA-TU','🪨'], 
-                ['BA-CA','📖'], ['BA-WA','🛍️'], ['BO-LU','🍰'], ['BI-BI','👩'], ['BA-YI','👶'],
-                ['BA-HU','💪'], ['BA-TA','🧱'], ['BU-SA','🧼'], ['BI-JI','🌱'], ['BU-TA','🙈'],
-                ['BE-DA','↔️'], ['BO-BI','👦'], ['BA-KI','🍽️'], ['BA-LI','🏖️'], ['BA-RU','🆕']
+                ['BA-JU',''], ['BO-LA',''], ['BU-KU',''], ['BI-RU',''], ['BA-TU',''], 
+                ['BA-CA',''], ['BA-WA',''], ['BO-LU',''], ['BI-BI',''], ['BA-YI',''],
+                ['BA-HU',''], ['BA-TA',''], ['BU-SA',''], ['BI-JI',''], ['BU-TA',''],
+                ['BE-DA',''], ['BO-BI',''], ['BA-KI',''], ['BA-LI',''], ['BA-RU','']
             ],
             'C': [
-                ['CA-BE','🌶️'], ['CU-CI','🧼'], ['CE-RI','🍒'], ['CA-RA','🛣️'], ['CU-KA','🧪'],
-                ['CI-NA','🇨🇳'], ['CU-MA','1️⃣'], ['CA-RI','🔍'], ['CI-TA','💭'], ['CI-UM','💋'],
-                ['CU-TI','🏖️'], ['CA-KU','🦾'], ['CO-BA','🔄'], ['CA-AT','🎨'], ['CI-RI','🏷️'],
-                ['CU-MI','🦑'], ['CI-KA','👧'], ['CI-CAK','🦎'], ['CA-KAR','🐾'], ['CE-PAT','⚡']
+                ['CA-BE',''], ['CU-CI',''], ['CE-RI',''], ['CA-RA',''], ['CU-KA',''],
+                ['CI-NA',''], ['CU-MA','1'], ['CA-RI',''], ['CI-TA',''], ['CI-UM',''],
+                ['CU-TI',''], ['CA-KU',''], ['CO-BA',''], ['CA-AT',''], ['CI-RI',''],
+                ['CU-MI',''], ['CI-KA',''], ['CI-CAK',''], ['CA-KAR',''], ['CE-PAT','']
             ],
             'D': [
-                ['DA-DU','🎲'], ['DU-A','2️⃣'], ['DO-NAT','🍩'], ['DA-UN','🍃'], ['DU-RI','🌵'],
-                ['DE-SA','🏡'], ['DA-GU','🧔'], ['DA-HI','🤕'], ['DA-NA','💰'], ['DA-SI','👔'],
-                ['DO-I','👫'], ['DU-KU','🍇'], ['DE-BU','💨'], ['DI-RI','👤'], ['DA-YA','🔋'],
-                ['DO-A','🙏'], ['DO-SA','❌'], ['DU-NIA','🌍'], ['DI-A','👉'], ['DA-RA','🕊️']
+                ['DA-DU',''], ['DU-A','2'], ['DO-NAT',''], ['DA-UN',''], ['DU-RI',''],
+                ['DE-SA',''], ['DA-GU',''], ['DA-HI',''], ['DA-NA',''], ['DA-SI',''],
+                ['DO-I',''], ['DU-KU',''], ['DE-BU',''], ['DI-RI',''], ['DA-YA',''],
+                ['DO-A',''], ['DO-SA',''], ['DU-NIA',''], ['DI-A',''], ['DA-RA','']
             ],
             'F': [
-                ['FO-TO','📷'], ['FE-RI','🚢'], ['FA-JAR','🌅'], ['FO-KUS','🎯'], ['FI-SIK','💪'],
-                ['FA-SE','📈'], ['FU-JI','🗻'], ['FA-KIR','🤲'], ['FE-TA','🧀'], ['FI-NI','🏁'],
-                ['FA-HAM','💡'], ['FO-YER','🏠'], ['FA-UNA','🐾'], ['FLO-RA','🌺'], ['FRE-ON','❄️']
+                ['FO-TO',''], ['FE-RI',''], ['FA-JAR',''], ['FO-KUS',''], ['FI-SIK',''],
+                ['FA-SE',''], ['FU-JI',''], ['FA-KIR',''], ['FE-TA',''], ['FI-NI',''],
+                ['FA-HAM',''], ['FO-YER',''], ['FA-UNA',''], ['FLO-RA',''], ['FRE-ON','']
             ],
             'G': [
-                ['GI-GI','🦷'], ['GU-LA','🍬'], ['GU-RU','👩‍🏫'], ['GA-UN','👗'], ['GU-CI','🏺'],
-                ['GA-YA','😎'], ['GE-MA','🔊'], ['GO-A','🕳️'], ['GU-SI','👄'], ['GA-JI','💵'],
-                ['GI-ZI','🥗'], ['GA-RA','🧂'], ['GU-NA','🛠️'], ['GO-JEK','🛵'], ['GE-RA','🚶'],
-                ['GA-JAH','🐘'], ['GA-LAK','😡'], ['GO-SOK','🧽'], ['GU-BUK','🛖'], ['GE-RAS','🚿']
+                ['GI-GI',''], ['GU-LA',''], ['GU-RU',''], ['GA-UN',''], ['GU-CI',''],
+                ['GA-YA',''], ['GE-MA',''], ['GO-A',''], ['GU-SI',''], ['GA-JI',''],
+                ['GI-ZI',''], ['GA-RA',''], ['GU-NA',''], ['GO-JEK',''], ['GE-RA',''],
+                ['GA-JAH',''], ['GA-LAK',''], ['GO-SOK',''], ['GU-BUK',''], ['GE-RAS','']
             ],
             'H': [
-                ['HA-TI','❤️'], ['HA-RI','☀️'], ['HA-WA','🌬️'], ['HU-LU','🏞️'], ['HI-NA','👎'],
-                ['HO-BI','🎨'], ['HA-LO','📞'], ['HU-NI','🏠'], ['HI-U','🦈'], ['HA-JI','🕋'],
-                ['HU-TAN','🌳'], ['HI-TAM','⚫'], ['HI-JAU','🟢'], ['HU-JAN','🌧️'], ['HA-BIS','🔚'],
-                ['HA-PUS','✏️'], ['HE-WAN','🐾'], ['HA-US','🥤'], ['HA-DIR','🙋'], ['HA-RIMAU','🐯']
+                ['HA-TI',''], ['HA-RI',''], ['HA-WA',''], ['HU-LU',''], ['HI-NA',''],
+                ['HO-BI',''], ['HA-LO',''], ['HU-NI',''], ['HI-U',''], ['HA-JI',''],
+                ['HU-TAN',''], ['HI-TAM',''], ['HI-JAU',''], ['HU-JAN',''], ['HA-BIS',''],
+                ['HA-PUS',''], ['HE-WAN',''], ['HA-US',''], ['HA-DIR',''], ['HA-RIMAU','']
             ],
             'J': [
-                ['JA-RI','🖐️'], ['JA-HE','🍠'], ['JA-LA','🕸️'], ['JI-WA','👻'], ['JU-GA','➕'],
-                ['JU-TA','💰'], ['JA-MU','🌿'], ['JA-WA','🗺️'], ['JU-LI','📅'], ['JU-NI','📅'],
-                ['JA-LAN','🛣️'], ['JAM-BU','🍈'], ['JUS','🥤'], ['JE-RUK','🍊'], ['JA-GUNG','🌽'],
-                ['JA-RUM','🪡'], ['JA-UH','🔭'], ['JE-LAS','👓'], ['JA-UH','🛤️'], ['JE-RA-PAH','🦒']
+                ['JA-RI',''], ['JA-HE',''], ['JA-LA',''], ['JI-WA',''], ['JU-GA',''],
+                ['JU-TA',''], ['JA-MU',''], ['JA-WA',''], ['JU-LI',''], ['JU-NI',''],
+                ['JA-LAN',''], ['JAM-BU',''], ['JUS',''], ['JE-RUK',''], ['JA-GUNG',''],
+                ['JA-RUM',''], ['JA-UH',''], ['JE-LAS',''], ['JA-UH',''], ['JE-RA-PAH','']
             ],
             'K': [
-                ['KA-KI','🦶'], ['KU-DA','🐎'], ['KO-PI','☕'], ['KA-CA','🪞'], ['KE-JU','🧀'],
-                ['KU-KU','💅'], ['KA-YA','💰'], ['KO-KO','👦'], ['KI-NI','👇'], ['KA-MU','👉'],
-                ['KI-TA','👥'], ['KO-TA','🏙️'], ['KA-TA','🗣️'], ['KU-PU','🦋'], ['KA-YU','🪵'],
-                ['KO-LAM','🏊'], ['KA-PAL','🚢'], ['KA-SUR','🛏️'], ['KA-MIS','📅'], ['KE-LAS','🏫']
+                ['KA-KI',''], ['KU-DA',''], ['KO-PI',''], ['KA-CA',''], ['KE-JU',''],
+                ['KU-KU',''], ['KA-YA',''], ['KO-KO',''], ['KI-NI',''], ['KA-MU',''],
+                ['KI-TA',''], ['KO-TA',''], ['KA-TA',''], ['KU-PU',''], ['KA-YU',''],
+                ['KO-LAM',''], ['KA-PAL',''], ['KA-SUR',''], ['KA-MIS',''], ['KE-LAS','']
             ],
             'L': [
-                ['LA-RI','🏃'], ['LI-MA','5️⃣'], ['LA-BU','🎃'], ['LU-KA','🩹'], ['LA-UT','🌊'],
-                ['LU-PA','❓'], ['LA-GI','🔁'], ['LA-MA','⏳'], ['LI-DI','🧹'], ['LE-LE','🐟'],
-                ['LO-BI','🏨'], ['LU-LU','🎓'], ['LAM-PU','💡'], ['LE-HER','🦒'], ['LI-BUR','🏖️'],
-                ['LU-RUS','📏'], ['LA-PAR','🍽️'], ['LI-HAT','👀'], ['LE-BAT','🌳'], ['LE-MAH','🥀']
+                ['LA-RI',''], ['LI-MA','5'], ['LA-BU',''], ['LU-KA',''], ['LA-UT',''],
+                ['LU-PA',''], ['LA-GI',''], ['LA-MA',''], ['LI-DI',''], ['LE-LE',''],
+                ['LO-BI',''], ['LU-LU',''], ['LAM-PU',''], ['LE-HER',''], ['LI-BUR',''],
+                ['LU-RUS',''], ['LA-PAR',''], ['LI-HAT',''], ['LE-BAT',''], ['LE-MAH','']
             ],
             'M': [
-                ['MA-TA','👀'], ['ME-JA','🪑'], ['MA-DU','🍯'], ['MA-MA','👩'], ['MA-LU','🙈'],
-                ['MU-KA','😊'], ['MU-DA','👶'], ['MA-KAN','🍽️'], ['MA-LAM','🌙'], ['MA-WAR','🌹'],
-                ['MA-LAS','😴'], ['MU-LUT','👄'], ['MA-SUK','🚪'], ['MI-NUM','🥤'], ['ME-RAH','🔴'],
-                ['MA-NIS','🍬'], ['MO-BIL','🚗'], ['MU-RAH','🏷️'], ['MA-SAK','🍳'], ['MU-SIM','🌤️']
+                ['MA-TA',''], ['ME-JA',''], ['MA-DU',''], ['MA-MA',''], ['MA-LU',''],
+                ['MU-KA',''], ['MU-DA',''], ['MA-KAN',''], ['MA-LAM',''], ['MA-WAR',''],
+                ['MA-LAS',''], ['MU-LUT',''], ['MA-SUK',''], ['MI-NUM',''], ['ME-RAH',''],
+                ['MA-NIS',''], ['MO-BIL',''], ['MU-RAH',''], ['MA-SAK',''], ['MU-SIM','']
             ],
             'N': [
-                ['NA-SI','🍚'], ['NA-MA','📛'], ['NI-LA','🟣'], ['NA-DI','❤️'], ['NA-GA','🐉'],
-                ['NO-TA','🧾'], ['NA-IK','📈'], ['NO-NA','👩'], ['NI-LAI','💯'], ['NA-FAS','🌬️'],
-                ['NA-KAL','😈'], ['NE-NEK','👵'], ['NYA-MUK','🦟'], ['NO-MOR','🔢'], ['NA-NAS','🍍'],
-                ['NA-TAL','🎄'], ['NI-PIS','📏'], ['NYA-NYI','🎤'], ['NYA-LA','🔥'], ['NYA-TA','👓']
+                ['NA-SI',''], ['NA-MA',''], ['NI-LA',''], ['NA-DI',''], ['NA-GA',''],
+                ['NO-TA',''], ['NA-IK',''], ['NO-NA',''], ['NI-LAI',''], ['NA-FAS',''],
+                ['NA-KAL',''], ['NE-NEK',''], ['NYA-MUK',''], ['NO-MOR',''], ['NA-NAS',''],
+                ['NA-TAL',''], ['NI-PIS',''], ['NYA-NYI',''], ['NYA-LA',''], ['NYA-TA','']
             ],
             'P': [
-                ['PA-LU','🔨'], ['PI-PI','😊'], ['PA-KU','🔩'], ['PA-GI','☀️'], ['PA-PA','👨'],
-                ['PI-TA','🎀'], ['PO-LA','💠'], ['PU-JI','🙏'], ['PA-RU','🫁'], ['PA-SAR','🏪'],
-                ['PA-GAR','🚧'], ['PA-HIT','💊'], ['PA-NAS','🥵'], ['PU-TIH','⚪'], ['PI-NTU','🚪'],
-                ['PO-HON','🌳'], ['PI-SANG','🍌'], ['PA-SIR','🏖️'], ['PA-YUNG','☂️'], ['PE-DAS','🌶️']
+                ['PA-LU',''], ['PI-PI',''], ['PA-KU',''], ['PA-GI',''], ['PA-PA',''],
+                ['PI-TA',''], ['PO-LA',''], ['PU-JI',''], ['PA-RU',''], ['PA-SAR',''],
+                ['PA-GAR',''], ['PA-HIT',''], ['PA-NAS',''], ['PU-TIH',''], ['PI-NTU',''],
+                ['PO-HON',''], ['PI-SANG',''], ['PA-SIR',''], ['PA-YUNG',''], ['PE-DAS','']
             ],
             'Q': [
-                ['QA-RI','👳'], ['QU-RAN','📖'], ['QA-SAR','🕌'], ['QI-SAS','⚖️']
+                ['QA-RI',''], ['QU-RAN',''], ['QA-SAR',''], ['QI-SAS','']
             ],
             'R': [
-                ['RO-TI','🍞'], ['RO-DA','🎡'], ['RA-JA','👑'], ['RA-TU','👸'], ['RA-GU','🤔'],
-                ['RA-YA','🎉'], ['RI-BU','💵'], ['RA-PI','👕'], ['RA-K','🗄️'], ['RA-JIN','📚'],
-                ['RU-MAH','🏠'], ['RU-SA','🦌'], ['RO-BOT','🤖'], ['RA-MPUT','💇'], ['RA-ASA','👅'],
-                ['RU-WET','🧶'], ['RU-SAK','🛠️'], ['RA-JUN','🧪'], ['RA-WAT','🏥'], ['RA-MAI','👯']
+                ['RO-TI',''], ['RO-DA',''], ['RA-JA',''], ['RA-TU',''], ['RA-GU',''],
+                ['RA-YA',''], ['RI-BU',''], ['RA-PI',''], ['RA-K',''], ['RA-JIN',''],
+                ['RU-MAH',''], ['RU-SA',''], ['RO-BOT',''], ['RA-MPUT',''], ['RA-ASA',''],
+                ['RU-WET',''], ['RU-SAK',''], ['RA-JUN',''], ['RA-WAT',''], ['RA-MAI','']
             ],
             'S': [
-                ['SA-PI','🐄'], ['SU-SU','🥛'], ['SA-PU','🧹'], ['SA-TU','1️⃣'], ['SA-YA','🙋'],
-                ['SU-KA','👍'], ['SO-TO','🍲'], ['SO-FA','🛋️'], ['SI-KU','💪'], ['SA-TE','🍢'],
-                ['SE-PI','🤫'], ['SA-KU','👖'], ['SA-KIT','🤒'], ['SE-PATU','👞'], ['SA-YUR','🥬'],
-                ['SI-KAT','🪥'], ['SE-MUT','🐜'], ['SU-RAT','✉️'], ['SI-ANG','☀️'], ['SA-BUN','🧼']
+                ['SA-PI',''], ['SU-SU',''], ['SA-PU',''], ['SA-TU','1'], ['SA-YA',''],
+                ['SU-KA',''], ['SO-TO',''], ['SO-FA',''], ['SI-KU',''], ['SA-TE',''],
+                ['SE-PI',''], ['SA-KU',''], ['SA-KIT',''], ['SE-PATU',''], ['SA-YUR',''],
+                ['SI-KAT',''], ['SE-MUT',''], ['SU-RAT',''], ['SI-ANG',''], ['SA-BUN','']
             ],
             'T': [
-                ['TO-PI','🧢'], ['TA-LI','🪢'], ['TA-HU','🧊'], ['TI-GA','3️⃣'], ['TI-SU','🧻'],
-                ['TO-KO','🏪'], ['TA-MU','👥'], ['TA-RI','💃'], ['TU-GU','🗼'], ['TU-JU','🎯'],
-                ['TI-PU','🃏'], ['TAS','🎒'], ['TE-LOR','🥚'], ['TI-DUR','💤'], ['TA-NAM','🌱'],
-                ['TE-MAN','👫'], ['TA-KUT','😱'], ['TA-HUN','📅'], ['TU-JUH','7️⃣'], ['TI-KUS','🐁']
+                ['TO-PI',''], ['TA-LI',''], ['TA-HU',''], ['TI-GA','3'], ['TI-SU',''],
+                ['TO-KO',''], ['TA-MU',''], ['TA-RI',''], ['TU-GU',''], ['TU-JU',''],
+                ['TI-PU',''], ['TAS',''], ['TE-LOR',''], ['TI-DUR',''], ['TA-NAM',''],
+                ['TE-MAN',''], ['TA-KUT',''], ['TA-HUN',''], ['TU-JUH','7'], ['TI-KUS','']
             ],
             'V': [
-                ['VI-LA','🏡'], ['VO-LI','🏐'], ['VAS','🏺'], ['VI-SI','👁️'], ['VE-TO','🚫'],
-                ['VA-KUM','🧹'], ['VI-RUS','🦠'], ['VA-RIA','🎨']
+                ['VI-LA',''], ['VO-LI',''], ['VAS',''], ['VI-SI',''], ['VE-TO',''],
+                ['VA-KUM',''], ['VI-RUS',''], ['VA-RIA','']
             ],
             'W': [
-                ['WA-JAH','😊'], ['WA-TU','🪨'], ['WA-NI','🦁'], ['WA-JA','🔩'], ['WA-YANG','🎭'],
-                ['WA-JAN','🍳'], ['WAR-NA','🎨'], ['WOR-TEL','🥕'], ['WA-KIL','👔'], ['WA-JIB','⚠️'],
-                ['WA-KTU','⌚'], ['WA-RUNG','🏪'], ['WA-RGA','👨‍👩‍👧']
+                ['WA-JAH',''], ['WA-TU',''], ['WA-NI',''], ['WA-JA',''], ['WA-YANG',''],
+                ['WA-JAN',''], ['WAR-NA',''], ['WOR-TEL',''], ['WA-KIL',''], ['WA-JIB',''],
+                ['WA-KTU',''], ['WA-RUNG',''], ['WA-RGA','']
             ],
             'X': [
-                ['X-RAY','🦴'], ['XI-LO-FON','🎹']
+                ['X-RAY',''], ['XI-LO-FON','']
             ],
             'Y': [
-                ['YO-YO','🪀'], ['YA-KIN','👍'], ['YE-NI','👧'], ['YU-YU','🦀'], ['YE-S','✅'],
-                ['YA-TIM','🧒'], ['YU-NAN','🌏']
+                ['YO-YO',''], ['YA-KIN',''], ['YE-NI',''], ['YU-YU',''], ['YE-S',''],
+                ['YA-TIM',''], ['YU-NAN','']
             ],
             'Z': [
-                ['ZE-BRA','🦓'], ['ZO-NA','🚧'], ['ZAM-RUD','💎'], ['ZA-KAT','💰'], ['ZA-ITUN','🫒'],
-                ['ZE-RO','0️⃣'], ['ZO-OM','🔍'], ['ZA-MAN','⏳']
+                ['ZE-BRA',''], ['ZO-NA',''], ['ZAM-RUD',''], ['ZA-KAT',''], ['ZA-ITUN',''],
+                ['ZE-RO','0'], ['ZO-OM',''], ['ZA-MAN','']
             ]
         };
 
