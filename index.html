@@ -2,351 +2,281 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Calistung Master - Belajar & Bermain</title>
-    <!-- Tailwind CSS untuk styling cepat -->
+    <!-- Tailwind CSS (Wajib Internet untuk Tampilan Bagus) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font ramah anak: Fredoka -->
+    <!-- Font Fredoka (Google Fonts) -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Kustom Tambahan */
+        /* --- GAYA KUSTOM --- */
         body {
             font-family: 'Fredoka', sans-serif;
-            background: #e0f2fe; /* Biru Muda lembut */
+            background: #e0f2fe; /* Biru Muda */
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent; /* Hilangkan highlight tap di mobile */
-            user-select: none; /* Mencegah seleksi teks */
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            touch-action: manipulation;
         }
 
-        /* Gaya Tombol 3D 'Empuk' */
+        /* Tombol 3D Empuk */
         .btn-3d {
             transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             top: 0;
-            box-shadow: 0 6px 0 rgba(0,0,0,0.15); /* Bayangan bawah */
+            box-shadow: 0 6px 0 rgba(0,0,0,0.15);
         }
         .btn-3d:active {
-            top: 4px; /* Efek ditekan */
+            top: 4px;
             box-shadow: 0 2px 0 rgba(0,0,0,0.15);
         }
 
-        /* Animasi Melayang (Floating) */
+        /* Animasi */
         .floating { animation: float 3s ease-in-out infinite; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        /* Animasi Muncul (Pop In) */
         .pop-in { animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        @keyframes pop {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+        @keyframes pop { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
 
-        /* Animasi Salah (Shake) */
         .shake { animation: shake 0.5s; }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            75% { transform: translateX(10px); }
-        }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
 
-        /* Manajemen Layar */
-        .screen { display: none; min-height: 100vh; width: 100%; }
-        .screen.active { display: flex; flex-direction: column; }
-        
-        /* Tampilan Suku Kata */
+        /* Layar */
+        .screen { display: none; min-height: 100vh; width: 100%; flex-direction: column; }
+        .screen.active { display: flex; }
+
+        /* Visual Suku Kata */
         .syllable-part {
             display: inline-block;
-            padding: 0 5px;
+            padding: 0 6px;
             margin: 0 2px;
-            border-bottom: 4px solid #cbd5e1;
+            border-bottom: 5px solid #86efac; /* Garis bawah hijau muda */
+            border-radius: 4px;
         }
     </style>
 </head>
-<body class="bg-blue-50">
+<body class="bg-blue-50 text-gray-800">
 
-    <!-- 1. HALAMAN BERANDA -->
+    <!-- 1. BERANDA -->
     <section id="home" class="screen active items-center justify-center p-6 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
         <div class="text-center mb-8 pop-in">
-            <div class="text-8xl mb-4 floating"></div>
+            <div class="text-8xl mb-4 floating">🚀</div>
             <h1 class="text-5xl font-bold text-blue-600 mb-2 drop-shadow-sm">CALISTUNG</h1>
-            <h2 class="text-2xl font-semibold text-blue-400 bg-white inline-block px-4 py-1 rounded-full shadow-sm">Master Membaca</h2>
+            <div class="bg-white px-6 py-2 rounded-full inline-block shadow-sm">
+                <h2 class="text-xl font-bold text-blue-400">Master Membaca</h2>
+            </div>
         </div>
         
         <div class="grid grid-cols-1 gap-4 w-full max-w-sm">
             <button onclick="nav('alphabet')" class="btn-3d w-full bg-yellow-400 hover:bg-yellow-300 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-yellow-500">
-                <span class="text-3xl"></span> <span>KENAL HURUF</span> <span></span>
+                <span class="text-3xl">🅰️</span> <span>KENAL HURUF</span> <span>➔</span>
             </button>
             
             <button onclick="nav('syllable-select')" class="btn-3d w-full bg-green-500 hover:bg-green-400 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-green-600">
-                <span class="text-3xl"></span> <span>SUKU KATA</span> <span></span>
+                <span class="text-3xl">🧩</span> <span>SUKU KATA</span> <span>➔</span>
             </button>
             
             <button onclick="nav('reading-intro')" class="btn-3d w-full bg-pink-500 hover:bg-pink-400 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-pink-600">
-                <span class="text-3xl"></span> <span>BACA KATA</span> <span></span>
+                <span class="text-3xl">📖</span> <span>BACA KATA</span> <span>➔</span>
             </button>
             
-            <button onclick="startGameMode()" class="btn-3d w-full bg-purple-600 hover:bg-purple-500 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-purple-800 mt-4 relative overflow-hidden group">
-                <div class="absolute inset-0 bg-white opacity-10 group-hover:opacity-20 transition"></div>
-                <span class="text-3xl"></span> <span>MINI GAME</span> <span></span>
+            <button onclick="startGameMode()" class="btn-3d w-full bg-purple-600 hover:bg-purple-500 text-white p-5 rounded-3xl text-xl font-bold flex items-center justify-between px-6 border-b-4 border-purple-800 mt-4 group">
+                <span class="text-3xl">🎮</span> <span>MINI GAME</span> <span>➔</span>
             </button>
         </div>
     </section>
 
-    <!-- 2. HALAMAN KENAL HURUF -->
+    <!-- 2. KENAL HURUF -->
     <section id="alphabet" class="screen p-4 bg-yellow-50">
-        <div class="sticky top-0 z-20 flex items-center justify-between bg-yellow-50/95 backdrop-blur py-3 mb-4 border-b border-yellow-100">
-            <button onclick="nav('home')" class="bg-white p-3 rounded-xl shadow text-xl active:scale-95"></button>
+        <div class="sticky top-0 z-20 flex items-center justify-between bg-yellow-50/95 backdrop-blur py-3 mb-4 border-b border-yellow-100 px-2">
+            <button onclick="nav('home')" class="bg-white p-3 rounded-xl shadow text-xl active:scale-95">🏠</button>
             <h2 class="text-2xl font-bold text-yellow-600">Alfabet A-Z</h2>
             <div class="w-10"></div>
         </div>
-        <div id="grid-alphabet" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pb-20 max-w-4xl mx-auto">
-            <!-- Diisi oleh JavaScript -->
+        <div id="grid-alphabet" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 pb-24 max-w-4xl mx-auto w-full">
+            <!-- Diisi JS -->
         </div>
     </section>
 
-    <!-- 3. HALAMAN PILIH SUKU KATA -->
+    <!-- 3. PILIH HURUF (SUKU KATA) -->
     <section id="syllable-select" class="screen p-4 bg-green-50">
-        <div class="sticky top-0 z-20 flex items-center justify-between bg-green-50/95 backdrop-blur py-3 mb-4 border-b border-green-100">
-            <button onclick="nav('home')" class="bg-white p-3 rounded-xl shadow text-xl active:scale-95"></button>
+        <div class="sticky top-0 z-20 flex items-center justify-between bg-green-50/95 backdrop-blur py-3 mb-4 border-b border-green-100 px-2">
+            <button onclick="nav('home')" class="bg-white p-3 rounded-xl shadow text-xl active:scale-95">🏠</button>
             <h2 class="text-2xl font-bold text-green-600">Pilih Huruf</h2>
             <div class="w-10"></div>
         </div>
-        <div id="grid-syllable-letters" class="grid grid-cols-4 sm:grid-cols-5 gap-3 pb-20 max-w-3xl mx-auto">
-            <!-- Diisi oleh JavaScript -->
+        <div id="grid-syllable-letters" class="grid grid-cols-4 sm:grid-cols-5 gap-3 pb-24 max-w-3xl mx-auto w-full">
+            <!-- Diisi JS -->
         </div>
     </section>
 
-    <!-- 4. HALAMAN MAIN SUKU KATA -->
+    <!-- 4. MAIN SUKU KATA -->
     <section id="syllable-play" class="screen items-center justify-center p-6 bg-green-100">
         <div class="w-full max-w-md bg-white rounded-[40px] p-8 text-center shadow-2xl relative pop-in border-4 border-green-200">
-            <button onclick="nav('syllable-select')" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 text-2xl"></button>
-            <div class="mb-2 text-sm font-bold text-green-400 tracking-widest mt-4">LATIHAN SUKU KATA</div>
-            <div id="syl-icon" class="text-9xl mb-6 floating block mt-4"></div>
-            <div id="syl-text" class="flex justify-center gap-2 text-5xl font-bold text-gray-700 mb-8 uppercase flex-wrap"></div>
+            <button onclick="nav('syllable-select')" class="absolute top-4 left-4 text-gray-400 hover:text-gray-600 text-3xl font-bold">×</button>
+            
+            <div class="mb-2 text-sm font-bold text-green-400 tracking-widest mt-6 uppercase">Eja Kata Ini</div>
+            <div id="syl-icon" class="text-9xl mb-6 floating block mt-2">🍎</div>
+            
+            <!-- Area Teks Suku Kata -->
+            <div id="syl-text" class="flex justify-center gap-2 text-5xl font-black text-gray-700 mb-8 uppercase flex-wrap"></div>
+
             <div class="space-y-4">
-                <button onclick="speakSyllable()" class="w-full bg-blue-100 text-blue-600 font-bold py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-blue-200 transition text-xl"> Dengar</button>
-                <button onclick="nextSyllable()" class="btn-3d w-full bg-green-500 text-white font-bold py-4 rounded-2xl text-2xl shadow-green-700/50">Lanjut </button>
+                <button onclick="speakSyllable()" class="w-full bg-blue-100 text-blue-600 font-bold py-4 rounded-2xl flex items-center justify-center gap-2 hover:bg-blue-200 transition text-xl">
+                    🔊 Dengar Suara
+                </button>
+                <button onclick="nextSyllable()" class="btn-3d w-full bg-green-500 text-white font-bold py-4 rounded-2xl text-2xl shadow-green-700/50">
+                    LANJUT ➔
+                </button>
             </div>
-            <div class="mt-6 flex justify-center gap-2" id="syl-dots"></div>
+            
+            <div class="mt-8 flex justify-center gap-2" id="syl-dots"></div>
         </div>
     </section>
 
-    <!-- 5. HALAMAN BACA KATA (INTRO) -->
+    <!-- 5. BACA KATA (INTRO) -->
     <section id="reading-intro" class="screen items-center justify-center p-6 bg-pink-100">
         <div class="text-center max-w-md pop-in">
-            <div class="text-8xl mb-4"></div>
-            <h2 class="text-4xl font-bold text-pink-600 mb-4">Fokus Baca Tulisan</h2>
-            <p class="text-lg text-gray-600 mb-8">Disini tidak ada gambar. Kamu harus membaca tulisannya sendiri ya!</p>
-            <button onclick="startReadingMode()" class="btn-3d bg-pink-500 text-white px-10 py-4 rounded-full text-2xl font-bold shadow-pink-700/50">Mulai Baca</button>
-            <button onclick="nav('home')" class="block mt-6 text-gray-500 font-bold underline">Kembali</button>
+            <div class="text-9xl mb-6">🧐</div>
+            <h2 class="text-4xl font-bold text-pink-600 mb-4">Fokus Tulisan</h2>
+            <p class="text-lg text-gray-600 mb-8 font-semibold">Tidak ada gambar disini.<br>Kamu harus membaca tulisannya sendiri ya!</p>
+            <button onclick="startReadingMode()" class="btn-3d bg-pink-500 text-white px-12 py-5 rounded-full text-2xl font-bold shadow-pink-700/50">
+                MULAI BACA
+            </button>
+            <button onclick="nav('home')" class="block mt-8 text-gray-400 font-bold underline">Kembali ke Menu</button>
         </div>
     </section>
 
-    <!-- 6. HALAMAN BACA KATA (MAIN) -->
+    <!-- 6. BACA KATA (PLAY) -->
     <section id="reading-play" class="screen items-center justify-center p-6 bg-white relative">
-        <button onclick="nav('reading-intro')" class="absolute top-6 left-6 p-3 bg-gray-100 rounded-2xl text-gray-500 hover:bg-gray-200 font-bold shadow-md z-10 flex items-center gap-2">
-            <span></span> <span class="hidden sm:inline">Keluar</span>
+        <!-- Tombol Keluar -->
+        <button onclick="nav('reading-intro')" class="absolute top-6 left-6 p-3 bg-gray-100 rounded-2xl text-gray-500 hover:bg-gray-200 font-bold shadow-md z-10 flex items-center gap-2 active:scale-95">
+            <span class="text-xl">✖</span> <span class="hidden sm:inline">Keluar</span>
         </button>
 
         <div class="w-full max-w-2xl text-center mt-10">
-            <div class="mb-4 text-gray-400 font-bold uppercase tracking-widest">Tantangan Membaca</div>
-            <div id="read-word" class="text-7xl sm:text-9xl font-black text-gray-800 tracking-wider mb-16 uppercase transition-all duration-300 transform">BOLA</div>
+            <div class="mb-6 text-gray-400 font-bold uppercase tracking-widest">Tantangan Membaca</div>
             
-            <div class="grid gap-4 max-w-sm mx-auto">
-                <button onclick="checkRead()" class="btn-3d bg-pink-500 text-white py-6 rounded-3xl font-bold text-2xl shadow-pink-700/50">AKU BISA BACA! </button>
-                <button onclick="speakReadWord()" class="text-pink-400 font-bold text-sm bg-pink-50 py-2 rounded-xl"> Bantuan Suara</button>
+            <!-- Kata Besar -->
+            <div id="read-word" class="text-7xl sm:text-9xl font-black text-gray-800 tracking-wider mb-20 uppercase transition-all duration-300 transform scale-100">BOLA</div>
+            
+            <div class="grid gap-4 max-w-sm mx-auto w-full">
+                <button onclick="checkRead()" class="btn-3d bg-pink-500 text-white py-6 rounded-3xl font-bold text-2xl shadow-pink-700/50">
+                    SAYA BISA BACA! ✔️
+                </button>
+                <button onclick="speakReadWord()" class="text-pink-400 font-bold text-sm bg-pink-50 py-3 rounded-xl border-2 border-pink-100">
+                    🔊 Bantuan Suara
+                </button>
             </div>
+            
             <div class="mt-12 flex justify-center gap-2" id="read-dots"></div>
         </div>
     </section>
 
-    <!-- 7. HALAMAN MINI GAME (50 SOAL BANK) -->
+    <!-- 7. MINI GAME (50 SOAL) -->
     <section id="game-play" class="screen items-center justify-center p-4 bg-purple-600">
-        <div class="w-full max-w-md bg-white rounded-[30px] p-6 shadow-2xl relative pop-in">
+        <div class="w-full max-w-md bg-white rounded-[35px] p-6 shadow-2xl relative pop-in">
+            <!-- Header Game -->
             <div class="flex justify-between items-center mb-6 bg-purple-50 p-3 rounded-2xl">
-                <button onclick="nav('home')" class="text-purple-400 font-bold text-sm"> Keluar</button>
+                <button onclick="nav('home')" class="text-purple-400 font-bold text-sm px-2">✖ Keluar</button>
                 <div class="text-right">
-                    <div class="font-bold text-purple-800">Skor: <span id="game-score">0</span></div>
-                    <div class="text-xs text-purple-400 font-bold mt-1">Soal <span id="game-progress">1</span>/10</div>
+                    <div class="font-bold text-purple-800 text-lg">Skor: <span id="game-score" class="text-purple-600">0</span></div>
+                    <div class="text-xs text-gray-400 font-bold mt-1">Soal <span id="game-progress">1</span> dari 10</div>
                 </div>
             </div>
 
-            <div class="text-center mb-8">
-                <h3 class="text-gray-500 font-bold text-sm mb-2">Tebak Kata untuk gambar ini:</h3>
-                <div id="game-question-icon" class="text-9xl floating inline-block"></div>
+            <!-- Soal -->
+            <div class="text-center mb-6">
+                <h3 class="text-gray-500 font-bold text-sm mb-4">Tebak kata yang sesuai gambar:</h3>
+                <div id="game-question-icon" class="text-9xl floating inline-block drop-shadow-md">🦁</div>
             </div>
 
-            <div id="game-options" class="grid gap-3"></div>
-            <div id="game-feedback" class="h-8 mt-4 text-center font-bold text-transparent">...</div>
+            <!-- Opsi Jawaban -->
+            <div id="game-options" class="grid gap-3">
+                <!-- Diisi JS -->
+            </div>
+            
+            <div id="game-feedback" class="h-6 mt-4 text-center font-bold text-lg text-transparent transition-all">...</div>
         </div>
     </section>
 
-    <!-- OVERLAY CONGRATS (Menang) -->
-    <div id="overlay-congrats" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden backdrop-blur-sm">
-        <div class="bg-white p-8 rounded-[40px] text-center max-w-sm mx-4 pop-in border-8 border-yellow-400">
-            <div class="text-8xl mb-4 animate-bounce"></div>
-            <h2 class="text-4xl font-bold text-yellow-500 mb-2">HEBAT!</h2>
+    <!-- OVERLAY CONGRATS -->
+    <div id="overlay-congrats" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden backdrop-blur-sm px-4">
+        <div class="bg-white p-8 rounded-[40px] text-center w-full max-w-sm pop-in border-8 border-yellow-400 relative">
+            <div class="text-8xl mb-4 animate-bounce">🏆</div>
+            <h2 class="text-4xl font-black text-yellow-500 mb-2">HEBAT!</h2>
             <p id="congrats-msg" class="text-gray-500 font-bold text-lg mb-8">Kamu menyelesaikan sesi ini!</p>
-            <button onclick="closeCongrats()" class="btn-3d bg-blue-500 text-white py-4 px-10 rounded-full font-bold text-xl w-full">Main Lagi</button>
+            <button onclick="closeCongrats()" class="btn-3d bg-blue-500 text-white py-4 px-10 rounded-full font-bold text-xl w-full shadow-blue-700/50">
+                Main Lagi
+            </button>
         </div>
     </div>
 
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        /* ================= DATA BANK ================= */
+        /* ==================== 1. DATA BANK ==================== */
+        
+        // ALFABET A-Z
         const alphabetData = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('').map(char => {
             const examples = {
-                'A':['Ayam',''], 'B':['Bola',''], 'C':['Ceri',''], 'D':['Dadu',''],
-                'E':['Es',''], 'F':['Foto',''], 'G':['Gajah',''], 'H':['Hiu',''],
-                'I':['Ikan',''], 'J':['Jus',''], 'K':['Kuda',''], 'L':['Lemon',''],
-                'M':['Mobil',''], 'N':['Nanas',''], 'O':['Obor',''], 'P':['Panda',''],
-                'Q':['Quran',''], 'R':['Roti',''], 'S':['Sapi',''], 'T':['Topi',''],
-                'U':['Ular',''], 'V':['Vas',''], 'W':['Wortel',''], 'X':['Xilofon',''],
-                'Y':['Yoyo',''], 'Z':['Zebra','']
+                'A':['Ayam','🐔'], 'B':['Bola','⚽'], 'C':['Ceri','🍒'], 'D':['Dadu','🎲'],
+                'E':['Es','🧊'], 'F':['Foto','📷'], 'G':['Gajah','🐘'], 'H':['Hiu','🦈'],
+                'I':['Ikan','🐟'], 'J':['Jus','🥤'], 'K':['Kuda','🐎'], 'L':['Lemon','🍋'],
+                'M':['Mobil','🚗'], 'N':['Nanas','🍍'], 'O':['Obor','🔥'], 'P':['Panda','🐼'],
+                'Q':['Quran','📖'], 'R':['Roti','🍞'], 'S':['Sapi','🐄'], 'T':['Topi','🧢'],
+                'U':['Ular','🐍'], 'V':['Vas','🏺'], 'W':['Wortel','🥕'], 'X':['Xilofon','🎹'],
+                'Y':['Yoyo','🪀'], 'Z':['Zebra','🦓']
             };
             return { char, word: examples[char][0], icon: examples[char][1] };
         });
 
         // BANK 50 SOAL MINI GAME
         const miniGameBank = [
-            {w:"AYAM", i:""}, {w:"BOLA", i:""}, {w:"KUCING", i:""}, {w:"IKAN", i:""}, {w:"GAJAH", i:""},
-            {w:"RUMAH", i:""}, {w:"MOBIL", i:""}, {w:"BUKU", i:""}, {w:"PENSIL", i:""}, {w:"POHON", i:""},
-            {w:"BUNGA", i:""}, {w:"MATAHARI", i:""}, {w:"BULAN", i:""}, {w:"BINTANG", i:""}, {w:"PELANGI", i:""},
-            {w:"API", i:""}, {w:"AIR", i:""}, {w:"ES", i:""}, {w:"ROTI", i:""}, {w:"SUSU", i:""},
-            {w:"KEJU", i:""}, {w:"TELUR", i:""}, {w:"PIZZA", i:""}, {w:"BURGER", i:""}, {w:"DONAT", i:""},
-            {w:"APEL", i:""}, {w:"PISANG", i:""}, {w:"ANGGUR", i:""}, {w:"JERUK", i:""}, {w:"NANAS", i:""},
-            {w:"TOPI", i:""}, {w:"BAJU", i:""}, {w:"CELANA", i:""}, {w:"SEPATU", i:""}, {w:"KACAMATA", i:""},
-            {w:"JAM", i:""}, {w:"TAS", i:""}, {w:"PAYUNG", i:""}, {w:"KUNCI", i:""}, {w:"GUNTING", i:""},
-            {w:"GITAR", i:""}, {w:"DRUM", i:""}, {w:"BOLA BASKET", i:""}, {w:"SEPEDA", i:""}, {w:"PESAWAT", i:""},
-            {w:"KERETA", i:""}, {w:"PERAHU", i:""}, {w:"ROKET", i:""}, {w:"ROBOT", i:""}, {w:"BONEKA", i:""}
+            {w:"AYAM", i:"🐔"}, {w:"BOLA", i:"⚽"}, {w:"KUCING", i:"🐱"}, {w:"IKAN", i:"🐟"}, {w:"GAJAH", i:"🐘"},
+            {w:"RUMAH", i:"🏠"}, {w:"MOBIL", i:"🚗"}, {w:"BUKU", i:"📚"}, {w:"PENSIL", i:"✏️"}, {w:"POHON", i:"🌳"},
+            {w:"BUNGA", i:"🌻"}, {w:"MATAHARI", i:"☀️"}, {w:"BULAN", i:"🌙"}, {w:"BINTANG", i:"⭐"}, {w:"PELANGI", i:"🌈"},
+            {w:"API", i:"🔥"}, {w:"AIR", i:"💧"}, {w:"ES", i:"🧊"}, {w:"ROTI", i:"🍞"}, {w:"SUSU", i:"🥛"},
+            {w:"KEJU", i:"🧀"}, {w:"TELUR", i:"🥚"}, {w:"PIZZA", i:"🍕"}, {w:"BURGER", i:"🍔"}, {w:"DONAT", i:"🍩"},
+            {w:"APEL", i:"🍎"}, {w:"PISANG", i:"🍌"}, {w:"ANGGUR", i:"🍇"}, {w:"JERUK", i:"🍊"}, {w:"NANAS", i:"🍍"},
+            {w:"TOPI", i:"🧢"}, {w:"BAJU", i:"👕"}, {w:"CELANA", i:"👖"}, {w:"SEPATU", i:"👞"}, {w:"KACAMATA", i:"👓"},
+            {w:"JAM", i:"⌚"}, {w:"TAS", i:"🎒"}, {w:"PAYUNG", i:"☂️"}, {w:"KUNCI", i:"🔑"}, {w:"GUNTING", i:"✂️"},
+            {w:"GITAR", i:"🎸"}, {w:"DRUM", i:"🥁"}, {w:"BOLA BASKET", i:"🏀"}, {w:"SEPEDA", i:"🚲"}, {w:"PESAWAT", i:"✈️"},
+            {w:"KERETA", i:"🚂"}, {w:"PERAHU", i:"⛵"}, {w:"ROKET", i:"🚀"}, {w:"ROBOT", i:"🤖"}, {w:"BONEKA", i:"🧸"}
         ];
 
-        // BANK SUKU KATA DIPERBARUI (Fokus 4 Huruf, Ejaan Diperbaiki)
+        // BANK SUKU KATA (Sudah Diperbaiki)
         const syllableBank = {
-            'B': [
-                ['BA-JU',''], ['BO-LA',''], ['BU-KU',''], ['BI-RU',''], ['BA-TU',''], 
-                ['BA-CA',''], ['BA-WA',''], ['BO-LU',''], ['BI-BI',''], ['BA-YI',''],
-                ['BA-HU',''], ['BA-TA',''], ['BU-SA',''], ['BI-JI',''], ['BU-TA',''],
-                ['BE-DA',''], ['BO-BI',''], ['BA-KI',''], ['BA-LI',''], ['BA-RU','']
-            ],
-            'C': [
-                ['CA-BE',''], ['CU-CI',''], ['CE-RI',''], ['CA-RA',''], ['CU-KA',''],
-                ['CI-NA',''], ['CU-MA','1'], ['CA-RI',''], ['CI-TA',''], ['CI-UM',''],
-                ['CU-TI',''], ['CA-KU',''], ['CO-BA',''], ['CA-AT',''], ['CI-RI',''],
-                ['CU-MI',''], ['CI-KA',''], ['CI-CAK',''], ['CA-KAR',''], ['CE-PAT','']
-            ],
-            'D': [
-                ['DA-DU',''], ['DU-A','2'], ['DO-NAT',''], ['DA-UN',''], ['DU-RI',''],
-                ['DE-SA',''], ['DA-GU',''], ['DA-HI',''], ['DA-NA',''], ['DA-SI',''],
-                ['DO-I',''], ['DU-KU',''], ['DE-BU',''], ['DI-RI',''], ['DA-YA',''],
-                ['DO-A',''], ['DO-SA',''], ['DU-NIA',''], ['DI-A',''], ['DA-RA','']
-            ],
-            'F': [
-                ['FO-TO',''], ['FE-RI',''], ['FA-JAR',''], ['FO-KUS',''], ['FI-SIK',''],
-                ['FA-SE',''], ['FU-JI',''], ['FA-KIR',''], ['FE-TA',''], ['FI-NI',''],
-                ['FA-HAM',''], ['FO-YER',''], ['FA-UNA',''], ['FLO-RA',''], ['FRE-ON','']
-            ],
-            'G': [
-                ['GI-GI',''], ['GU-LA',''], ['GU-RU',''], ['GA-UN',''], ['GU-CI',''],
-                ['GA-YA',''], ['GE-MA',''], ['GO-A',''], ['GU-SI',''], ['GA-JI',''],
-                ['GI-ZI',''], ['GA-RA',''], ['GU-NA',''], ['GO-JEK',''], ['GE-RA',''],
-                ['GA-JAH',''], ['GA-LAK',''], ['GO-SOK',''], ['GU-BUK',''], ['GE-RAS','']
-            ],
-            'H': [
-                ['HA-TI',''], ['HA-RI',''], ['HA-WA',''], ['HU-LU',''], ['HI-NA',''],
-                ['HO-BI',''], ['HA-LO',''], ['HU-NI',''], ['HI-U',''], ['HA-JI',''],
-                ['HU-TAN',''], ['HI-TAM',''], ['HI-JAU',''], ['HU-JAN',''], ['HA-BIS',''],
-                ['HA-PUS',''], ['HE-WAN',''], ['HA-US',''], ['HA-DIR',''], ['HA-RIMAU','']
-            ],
-            'J': [
-                ['JA-RI',''], ['JA-HE',''], ['JA-LA',''], ['JI-WA',''], ['JU-GA',''],
-                ['JU-TA',''], ['JA-MU',''], ['JA-WA',''], ['JU-LI',''], ['JU-NI',''],
-                ['JA-LAN',''], ['JAM-BU',''], ['JUS',''], ['JE-RUK',''], ['JA-GUNG',''],
-                ['JA-RUM',''], ['JA-UH',''], ['JE-LAS',''], ['JA-UH',''], ['JE-RA-PAH','']
-            ],
-            'K': [
-                ['KA-KI',''], ['KU-DA',''], ['KO-PI',''], ['KA-CA',''], ['KE-JU',''],
-                ['KU-KU',''], ['KA-YA',''], ['KO-KO',''], ['KI-NI',''], ['KA-MU',''],
-                ['KI-TA',''], ['KO-TA',''], ['KA-TA',''], ['KU-PU',''], ['KA-YU',''],
-                ['KO-LAM',''], ['KA-PAL',''], ['KA-SUR',''], ['KA-MIS',''], ['KE-LAS','']
-            ],
-            'L': [
-                ['LA-RI',''], ['LI-MA','5'], ['LA-BU',''], ['LU-KA',''], ['LA-UT',''],
-                ['LU-PA',''], ['LA-GI',''], ['LA-MA',''], ['LI-DI',''], ['LE-LE',''],
-                ['LO-BI',''], ['LU-LU',''], ['LAM-PU',''], ['LE-HER',''], ['LI-BUR',''],
-                ['LU-RUS',''], ['LA-PAR',''], ['LI-HAT',''], ['LE-BAT',''], ['LE-MAH','']
-            ],
-            'M': [
-                ['MA-TA',''], ['ME-JA',''], ['MA-DU',''], ['MA-MA',''], ['MA-LU',''],
-                ['MU-KA',''], ['MU-DA',''], ['MA-KAN',''], ['MA-LAM',''], ['MA-WAR',''],
-                ['MA-LAS',''], ['MU-LUT',''], ['MA-SUK',''], ['MI-NUM',''], ['ME-RAH',''],
-                ['MA-NIS',''], ['MO-BIL',''], ['MU-RAH',''], ['MA-SAK',''], ['MU-SIM','']
-            ],
-            'N': [
-                ['NA-SI',''], ['NA-MA',''], ['NI-LA',''], ['NA-DI',''], ['NA-GA',''],
-                ['NO-TA',''], ['NA-IK',''], ['NO-NA',''], ['NI-LAI',''], ['NA-FAS',''],
-                ['NA-KAL',''], ['NE-NEK',''], ['NYA-MUK',''], ['NO-MOR',''], ['NA-NAS',''],
-                ['NA-TAL',''], ['NI-PIS',''], ['NYA-NYI',''], ['NYA-LA',''], ['NYA-TA','']
-            ],
-            'P': [
-                ['PA-LU',''], ['PI-PI',''], ['PA-KU',''], ['PA-GI',''], ['PA-PA',''],
-                ['PI-TA',''], ['PO-LA',''], ['PU-JI',''], ['PA-RU',''], ['PA-SAR',''],
-                ['PA-GAR',''], ['PA-HIT',''], ['PA-NAS',''], ['PU-TIH',''], ['PI-NTU',''],
-                ['PO-HON',''], ['PI-SANG',''], ['PA-SIR',''], ['PA-YUNG',''], ['PE-DAS','']
-            ],
-            'Q': [
-                ['QA-RI',''], ['QU-RAN',''], ['QA-SAR',''], ['QI-SAS','']
-            ],
-            'R': [
-                ['RO-TI',''], ['RO-DA',''], ['RA-JA',''], ['RA-TU',''], ['RA-GU',''],
-                ['RA-YA',''], ['RI-BU',''], ['RA-PI',''], ['RA-K',''], ['RA-JIN',''],
-                ['RU-MAH',''], ['RU-SA',''], ['RO-BOT',''], ['RA-MPUT',''], ['RA-ASA',''],
-                ['RU-WET',''], ['RU-SAK',''], ['RA-JUN',''], ['RA-WAT',''], ['RA-MAI','']
-            ],
-            'S': [
-                ['SA-PI',''], ['SU-SU',''], ['SA-PU',''], ['SA-TU','1'], ['SA-YA',''],
-                ['SU-KA',''], ['SO-TO',''], ['SO-FA',''], ['SI-KU',''], ['SA-TE',''],
-                ['SE-PI',''], ['SA-KU',''], ['SA-KIT',''], ['SE-PATU',''], ['SA-YUR',''],
-                ['SI-KAT',''], ['SE-MUT',''], ['SU-RAT',''], ['SI-ANG',''], ['SA-BUN','']
-            ],
-            'T': [
-                ['TO-PI',''], ['TA-LI',''], ['TA-HU',''], ['TI-GA','3'], ['TI-SU',''],
-                ['TO-KO',''], ['TA-MU',''], ['TA-RI',''], ['TU-GU',''], ['TU-JU',''],
-                ['TI-PU',''], ['TAS',''], ['TE-LOR',''], ['TI-DUR',''], ['TA-NAM',''],
-                ['TE-MAN',''], ['TA-KUT',''], ['TA-HUN',''], ['TU-JUH','7'], ['TI-KUS','']
-            ],
-            'V': [
-                ['VI-LA',''], ['VO-LI',''], ['VAS',''], ['VI-SI',''], ['VE-TO',''],
-                ['VA-KUM',''], ['VI-RUS',''], ['VA-RIA','']
-            ],
-            'W': [
-                ['WA-JAH',''], ['WA-TU',''], ['WA-NI',''], ['WA-JA',''], ['WA-YANG',''],
-                ['WA-JAN',''], ['WAR-NA',''], ['WOR-TEL',''], ['WA-KIL',''], ['WA-JIB',''],
-                ['WA-KTU',''], ['WA-RUNG',''], ['WA-RGA','']
-            ],
-            'X': [
-                ['X-RAY',''], ['XI-LO-FON','']
-            ],
-            'Y': [
-                ['YO-YO',''], ['YA-KIN',''], ['YE-NI',''], ['YU-YU',''], ['YE-S',''],
-                ['YA-TIM',''], ['YU-NAN','']
-            ],
-            'Z': [
-                ['ZE-BRA',''], ['ZO-NA',''], ['ZAM-RUD',''], ['ZA-KAT',''], ['ZA-ITUN',''],
-                ['ZE-RO','0'], ['ZO-OM',''], ['ZA-MAN','']
-            ]
+            'B': [['BA-JU','👕'], ['BO-LA','⚽'], ['BU-KU','📚'], ['BI-RU','🔵'], ['BA-TU','🪨'], ['BA-CA','📖'], ['BA-WA','🛍️'], ['BO-LU','🍰'], ['BA-YI','👶'], ['BA-HU','💪'], ['BA-TA','🧱'], ['BU-SA','🧼'], ['BI-JI','🌱'], ['BU-TA','🙈'], ['BE-DA','↔️'], ['BO-BI','👦'], ['BA-KI','🍽️'], ['BA-LI','🏖️'], ['BA-RU','🆕']],
+            'C': [['CA-BE','🌶️'], ['CU-CI','🧼'], ['CE-RI','🍒'], ['CA-RA','🛣️'], ['CU-KA','🧪'], ['CI-NA','🇨🇳'], ['CU-MA','1️⃣'], ['CA-RI','🔍'], ['CI-TA','💭'], ['CI-UM','💋'], ['CU-TI','🏖️'], ['CA-KU','🦾'], ['CO-BA','🔄'], ['CA-T','🎨'], ['CI-RI','🏷️'], ['CU-MI','🦑'], ['CI-KA','👧'], ['CI-CAK','🦎'], ['CA-KAR','🐾'], ['CE-PAT','⚡']],
+            'D': [['DA-DU','🎲'], ['DU-A','2️⃣'], ['DO-NAT','🍩'], ['DA-UN','🍃'], ['DU-RI','🌵'], ['DE-SA','🏡'], ['DA-GU','🧔'], ['DA-HI','🤕'], ['DA-NA','💰'], ['DA-SI','👔'], ['DO-I','👫'], ['DU-KU','🍇'], ['DE-BU','💨'], ['DI-RI','👤'], ['DA-YA','🔋'], ['DO-A','🙏'], ['DO-SA','❌'], ['DU-NIA','🌍'], ['DI-A','👉'], ['DA-RA','🕊️']],
+            'F': [['FO-TO','📷'], ['FE-RI','🚢'], ['FA-JAR','🌅'], ['FO-KUS','🎯'], ['FI-SIK','💪'], ['FA-SE','📈'], ['FU-JI','🗻'], ['FA-KIR','🤲'], ['FE-TA','🧀'], ['FI-NI','🏁'], ['FA-HAM','💡'], ['FO-YER','🏠'], ['FA-UNA','🐾'], ['FLO-RA','🌺'], ['FRE-ON','❄️']],
+            'G': [['GI-GI','🦷'], ['GU-LA','🍬'], ['GU-RU','👩‍🏫'], ['GA-UN','👗'], ['GU-CI','🏺'], ['GA-YA','😎'], ['GE-MA','🔊'], ['GO-A','🕳️'], ['GU-SI','👄'], ['GA-JI','💵'], ['GI-ZI','🥗'], ['GA-RA','🧂'], ['GU-NA','🛠️'], ['GO-JEK','🛵'], ['GE-RA','🚶'], ['GA-JAH','🐘'], ['GA-LAK','😡'], ['GO-SOK','🧽'], ['GU-BUK','🛖'], ['GE-RAS','🚿']],
+            'H': [['HA-TI','❤️'], ['HA-RI','☀️'], ['HA-WA','🌬️'], ['HU-LU','🏞️'], ['HI-NA','👎'], ['HO-BI','🎨'], ['HA-LO','📞'], ['HU-NI','🏠'], ['HI-U','🦈'], ['HA-JI','🕋'], ['HU-TAN','🌳'], ['HI-TAM','⚫'], ['HI-JAU','🟢'], ['HU-JAN','🌧️'], ['HA-BIS','🔚'], ['HA-PUS','✏️'], ['HE-WAN','🐾'], ['HA-US','🥤'], ['HA-DIR','🙋'], ['HA-RIMAU','🐯']],
+            'J': [['JA-RI','🖐️'], ['JA-HE','🍠'], ['JA-LA','🕸️'], ['JI-WA','👻'], ['JU-GA','➕'], ['JU-TA','💰'], ['JA-MU','🌿'], ['JA-WA','🗺️'], ['JU-LI','📅'], ['JU-NI','📅'], ['JA-LAN','🛣️'], ['JAM-BU','🍈'], ['JUS','🥤'], ['JE-RUK','🍊'], ['JA-GUNG','🌽'], ['JA-RUM','🪡'], ['JA-UH','🔭'], ['JE-LAS','👓'], ['JE-RA-PAH','🦒']],
+            'K': [['KA-KI','🦶'], ['KU-DA','🐎'], ['KO-PI','☕'], ['KA-CA','🪞'], ['KE-JU','🧀'], ['KU-KU','💅'], ['KA-YA','💰'], ['KO-KO','👦'], ['KI-NI','👇'], ['KA-MU','👉'], ['KI-TA','👥'], ['KO-TA','🏙️'], ['KA-TA','🗣️'], ['KU-PU','🦋'], ['KA-YU','🪵'], ['KO-LAM','🏊'], ['KA-PAL','🚢'], ['KA-SUR','🛏️'], ['KA-MIS','📅'], ['KE-LAS','🏫']],
+            'L': [['LA-RI','🏃'], ['LI-MA','5️⃣'], ['LA-BU','🎃'], ['LU-KA','🩹'], ['LA-UT','🌊'], ['LU-PA','❓'], ['LA-GI','🔁'], ['LA-MA','⏳'], ['LI-DI','🧹'], ['LE-LE','🐟'], ['LO-BI','🏨'], ['LU-LU','🎓'], ['LAM-PU','💡'], ['LE-HER','🦒'], ['LI-BUR','🏖️'], ['LU-RUS','📏'], ['LA-PAR','🍽️'], ['LI-HAT','👀'], ['LE-BAT','🌳'], ['LE-MAH','🥀']],
+            'M': [['MA-TA','👀'], ['ME-JA','🪑'], ['MA-DU','🍯'], ['MA-MA','👩'], ['MA-LU','🙈'], ['MU-KA','😊'], ['MU-DA','👶'], ['MA-KAN','🍽️'], ['MA-LAM','🌙'], ['MA-WAR','🌹'], ['MA-LAS','😴'], ['MU-LUT','👄'], ['MA-SUK','🚪'], ['MI-NUM','🥤'], ['ME-RAH','🔴'], ['MA-NIS','🍬'], ['MO-BIL','🚗'], ['MU-RAH','🏷️'], ['MA-SAK','🍳'], ['MU-SIM','🌤️']],
+            'N': [['NA-SI','🍚'], ['NA-MA','📛'], ['NI-LA','🟣'], ['NA-DI','❤️'], ['NA-GA','🐉'], ['NO-TA','🧾'], ['NA-IK','📈'], ['NO-NA','👩'], ['NI-LAI','💯'], ['NA-FAS','🌬️'], ['NA-KAL','😈'], ['NE-NEK','👵'], ['NYA-MUK','🦟'], ['NO-MOR','🔢'], ['NA-NAS','🍍'], ['NA-TAL','🎄'], ['NI-PIS','📏'], ['NYA-NYI','🎤'], ['NYA-LA','🔥'], ['NYA-TA','👓']],
+            'P': [['PA-LU','🔨'], ['PI-PI','😊'], ['PA-KU','🔩'], ['PA-GI','☀️'], ['PA-PA','👨'], ['PI-TA','🎀'], ['PO-LA','💠'], ['PU-JI','🙏'], ['PA-RU','🫁'], ['PA-SAR','🏪'], ['PA-GAR','🚧'], ['PA-HIT','💊'], ['PA-NAS','🥵'], ['PU-TIH','⚪'], ['PI-NTU','🚪'], ['PO-HON','🌳'], ['PI-SANG','🍌'], ['PA-SIR','🏖️'], ['PA-YUNG','☂️'], ['PE-DAS','🌶️']],
+            'Q': [['QA-RI','👳'], ['QU-RAN','📖'], ['QA-SAR','🕌'], ['QI-SAS','⚖️']],
+            'R': [['RO-TI','🍞'], ['RO-DA','🎡'], ['RA-JA','👑'], ['RA-TU','👸'], ['RA-GU','🤔'], ['RA-YA','🎉'], ['RI-BU','💵'], ['RA-PI','👕'], ['RA-K','🗄️'], ['RA-JIN','📚'], ['RU-MAH','🏠'], ['RU-SA','🦌'], ['RO-BOT','🤖'], ['RA-MPUT','💇'], ['RA-ASA','👅'], ['RU-WET','🧶'], ['RU-SAK','🛠️'], ['RA-JUN','🧪'], ['RA-WAT','🏥'], ['RA-MAI','👯']],
+            'S': [['SA-PI','🐄'], ['SU-SU','🥛'], ['SA-PU','🧹'], ['SA-TU','1️⃣'], ['SA-YA','🙋'], ['SU-KA','👍'], ['SO-TO','🍲'], ['SO-FA','🛋️'], ['SI-KU','💪'], ['SA-TE','🍢'], ['SE-PI','🤫'], ['SA-KU','👖'], ['SA-KIT','🤒'], ['SE-PATU','👞'], ['SA-YUR','🥬'], ['SI-KAT','🪥'], ['SE-MUT','🐜'], ['SU-RAT','✉️'], ['SI-ANG','☀️'], ['SA-BUN','🧼']],
+            'T': [['TO-PI','🧢'], ['TA-LI','🪢'], ['TA-HU','🧊'], ['TI-GA','3️⃣'], ['TI-SU','🧻'], ['TO-KO','🏪'], ['TA-MU','👥'], ['TA-RI','💃'], ['TU-GU','🗼'], ['TU-JU','🎯'], ['TI-PU','🃏'], ['TAS','🎒'], ['TE-LOR','🥚'], ['TI-DUR','💤'], ['TA-NAM','🌱'], ['TE-MAN','👫'], ['TA-KUT','😱'], ['TA-HUN','📅'], ['TU-JUH','7️⃣'], ['TI-KUS','🐁']],
+            'V': [['VI-LA','🏡'], ['VO-LI','🏐'], ['VAS','🏺'], ['VI-SI','👁️'], ['VE-TO','🚫'], ['VA-KUM','🧹'], ['VI-RUS','🦠'], ['VA-RIA','🎨']],
+            'W': [['WA-JAH','😊'], ['WA-TU','🪨'], ['WA-NI','🦁'], ['WA-JA','🔩'], ['WA-YANG','🎭'], ['WA-JAN','🍳'], ['WAR-NA','🎨'], ['WOR-TEL','🥕'], ['WA-KIL','👔'], ['WA-JIB','⚠️'], ['WA-KTU','⌚'], ['WA-RUNG','🏪'], ['WA-RGA','👨‍👩‍👧']],
+            'X': [['X-RAY','🦴'], ['XI-LO-FON','🎹']],
+            'Y': [['YO-YO','🪀'], ['YA-KIN','👍'], ['YE-NI','👧'], ['YU-YU','🦀'], ['YE-S','✅'], ['YA-TIM','🧒'], ['YU-NAN','🌏']],
+            'Z': [['ZE-BRA','🦓'], ['ZO-NA','🚧'], ['ZAM-RUD','💎'], ['ZA-KAT','💰'], ['ZA-ITUN','🫒'], ['ZE-RO','0️⃣'], ['ZO-OM','🔍'], ['ZA-MAN','⏳']]
         };
 
-        // BANK BACA KATA (Fokus 10 dari Bank ini)
-        const readingWords = [
+        const readingWordsBank = [
             "BOLA", "MAMA", "PAPA", "BUKU", "SAPI", "KACA", "LARI", "GIGI", "KAKI", 
-            "MEJA", "BATU", "JARI", "MATA", "SUSU", "ROTI", "SAYA", "SUKA", "BACA"
+            "MEJA", "BATU", "JARI", "MATA", "SUSU", "ROTI", "SAYA", "SUKA", "BACA",
+            "JALAN", "MAKAN", "MINUM", "TIDUR", "BANGUN", "PINTU", "JENDELA"
         ];
 
-        /* ================= STATE ================= */
+        /* ==================== 2. GLOBAL STATE ==================== */
         let activeSyllables = [];
         let activeSylIndex = 0;
         
@@ -354,24 +284,27 @@
         let activeReadIndex = 0;
 
         let gameScore = 0;
-        let activeGameQueue = []; // Antrian 10 soal
+        let activeGameQueue = [];
         let activeGameIndex = 0;
         let activeGameQuestion = null;
         let isGameLocked = false;
 
-        /* ================= NAVIGASI ================= */
+        /* ==================== 3. FUNGSI UMUM ==================== */
         function nav(screenId) {
             document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
             window.scrollTo(0,0);
 
+            // Init screen logic
             if(screenId === 'alphabet') renderAlphabet();
             if(screenId === 'syllable-select') renderSyllableSelect();
         }
 
         function speak(text) {
             window.speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(text.replace(/-/g, ''));
+            // Membersihkan tanda hubung agar dibaca lancar
+            const cleanText = text.replace(/-/g, '');
+            const u = new SpeechSynthesisUtterance(cleanText);
             u.lang = 'id-ID';
             u.rate = 0.9;
             window.speechSynthesis.speak(u);
@@ -381,7 +314,7 @@
             return array.sort(() => Math.random() - 0.5);
         }
 
-        /* ================= 2. ALFABET ================= */
+        /* ==================== 4. ALFABET ==================== */
         function renderAlphabet() {
             const grid = document.getElementById('grid-alphabet');
             grid.innerHTML = '';
@@ -398,13 +331,13 @@
             });
         }
 
-        /* ================= 3 & 4. SUKU KATA ================= */
+        /* ==================== 5. SUKU KATA ==================== */
         function renderSyllableSelect() {
             const grid = document.getElementById('grid-syllable-letters');
             grid.innerHTML = '';
             Object.keys(syllableBank).sort().forEach(char => {
                 const btn = document.createElement('button');
-                btn.className = "btn-3d bg-white border-b-4 border-green-200 rounded-2xl p-4 text-4xl font-bold text-green-600 hover:bg-green-50 aspect-square";
+                btn.className = "btn-3d bg-white border-b-4 border-green-200 rounded-2xl p-4 text-4xl font-bold text-green-600 hover:bg-green-50 aspect-square shadow-sm";
                 btn.innerText = char;
                 btn.onclick = () => startSyllableSession(char);
                 grid.appendChild(btn);
@@ -414,6 +347,7 @@
         function startSyllableSession(char) {
             const allWords = syllableBank[char];
             const shuffled = shuffle([...allWords]);
+            // Ambil 3 kata saja per sesi
             activeSyllables = shuffled.slice(0, 3);
             activeSylIndex = 0;
             nav('syllable-play');
@@ -427,7 +361,7 @@
             const textContainer = document.getElementById('syl-text');
             textContainer.innerHTML = '';
             
-            // Cek jika kata mengandung pemisah suku kata (-)
+            // Logika pemisahan suku kata
             if(current[0].includes('-')) {
                 const parts = current[0].split('-');
                 parts.forEach(p => {
@@ -437,7 +371,6 @@
                     textContainer.appendChild(span);
                 });
             } else {
-                // Untuk kata satu suku kata (TAS, JUS, dll)
                 const span = document.createElement('span');
                 span.className = "syllable-part border-green-300";
                 span.innerText = current[0];
@@ -466,9 +399,10 @@
             }
         }
 
-        /* ================= 5 & 6. BACA KATA ================= */
+        /* ==================== 6. BACA KATA ==================== */
         function startReadingMode() {
-            activeReading = shuffle([...readingWords]).slice(0, 10); 
+            // Ambil 10 kata acak
+            activeReading = shuffle([...readingWordsBank]).slice(0, 10); 
             activeReadIndex = 0;
             nav('reading-play');
             renderReadingCard();
@@ -477,6 +411,8 @@
         function renderReadingCard() {
             const word = activeReading[activeReadIndex];
             const el = document.getElementById('read-word');
+            
+            // Efek refresh teks
             el.style.opacity = 0;
             el.style.transform = 'scale(0.8)';
             setTimeout(() => {
@@ -508,12 +444,12 @@
             }
         }
 
-        /* ================= 7. MINI GAME (50 BANK, 10 PER SESSION) ================= */
+        /* ==================== 7. MINI GAME ==================== */
         function startGameMode() {
             gameScore = 0;
             // 1. Acak Bank 50 soal
             const shuffledBank = shuffle([...miniGameBank]);
-            // 2. Ambil 10 soal saja untuk sesi ini
+            // 2. Ambil 10 soal untuk sesi ini
             activeGameQueue = shuffledBank.slice(0, 10);
             activeGameIndex = 0;
             
@@ -523,15 +459,14 @@
         }
 
         function renderGameLevel() {
-            isGameLocked = false;
+            isGameLocked = false; // Reset lock
             
-            // Perbarui indikator soal (Contoh: Soal 1/10)
             document.getElementById('game-progress').innerText = activeGameIndex + 1;
 
             const correctData = activeGameQueue[activeGameIndex];
             activeGameQuestion = correctData;
 
-            // Buat Pengecoh (Distractor) dari sisa bank (tidak termasuk jawaban benar)
+            // Buat 2 pengecoh
             let distractors = miniGameBank
                 .filter(d => d.w !== correctData.w)
                 .sort(() => 0.5 - Math.random())
@@ -541,6 +476,7 @@
 
             document.getElementById('game-question-icon').innerText = correctData.i;
             document.getElementById('game-feedback').innerText = "";
+            document.getElementById('game-feedback').className = "h-6 mt-4 text-center font-bold text-lg text-transparent";
             
             const btnContainer = document.getElementById('game-options');
             btnContainer.innerHTML = '';
@@ -555,7 +491,7 @@
         }
 
         function checkGameAnswer(selectedWord, btnElement) {
-            if (isGameLocked) return;
+            if (isGameLocked) return; // Cegah double click
 
             if (selectedWord === activeGameQuestion.w) {
                 // BENAR
@@ -563,12 +499,18 @@
                 gameScore += 10;
                 document.getElementById('game-score').innerText = gameScore;
                 
+                // Visual
                 btnElement.classList.remove('bg-white', 'text-purple-700', 'hover:bg-purple-50');
                 btnElement.classList.add('bg-green-500', 'text-white', 'border-green-600');
+                
+                const feedback = document.getElementById('game-feedback');
+                feedback.innerText = "BENAR! 🎉";
+                feedback.className = "h-6 mt-4 text-center font-bold text-lg text-green-600 pop-in";
+
                 speak("Benar!");
                 
                 setTimeout(() => {
-                    if (activeGameIndex < 9) { // 0-9 (Total 10 soal)
+                    if (activeGameIndex < 9) {
                         activeGameIndex++;
                         renderGameLevel();
                     } else {
@@ -578,7 +520,12 @@
             } else {
                 // SALAH
                 btnElement.classList.add('bg-red-500', 'text-white', 'shake');
+                const feedback = document.getElementById('game-feedback');
+                feedback.innerText = "Coba Lagi ya...";
+                feedback.className = "h-6 mt-4 text-center font-bold text-lg text-red-500 pop-in";
+                
                 speak("Coba lagi");
+                
                 setTimeout(() => {
                     btnElement.classList.remove('shake', 'bg-red-500', 'text-white');
                     btnElement.classList.add('bg-white', 'text-purple-700');
@@ -586,7 +533,7 @@
             }
         }
 
-        /* ================= UMUM ================= */
+        /* ==================== 8. OVERLAY SELESAI ==================== */
         function showCongrats(msg) {
             document.getElementById('congrats-msg').innerText = msg;
             document.getElementById('overlay-congrats').classList.remove('hidden');
@@ -602,4 +549,5 @@
     </script>
 </body>
 </html>
+
 
